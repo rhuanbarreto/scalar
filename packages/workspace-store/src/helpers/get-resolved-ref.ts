@@ -20,3 +20,8 @@ export const getResolvedRef = <Node>(
 
   return node
 }
+
+/**
+ * Type helper we can use if we have performed the isReference check higher in the stack
+ */
+export type Dereference<T> = T extends { $ref: string; '$ref-value'?: infer V } ? (V extends object ? V : never) : T
