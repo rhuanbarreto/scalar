@@ -1,5 +1,5 @@
-type RefNode<Node> = Partial<Node> & { $ref: string; '$ref-value': Node }
-type NodeInput<Node> = Node | RefNode<Node>
+export type RefNode<Node> = Partial<Node> & { $ref: string; '$ref-value': Node }
+export type NodeInput<Node> = Node | RefNode<Node>
 
 const defaultTransform = <Node>(node: RefNode<Node>) => {
   return node['$ref-value']
